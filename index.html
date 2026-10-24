@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CV en ligne</title>
+<meta name="description" content="CV, lettre de motivation et projets.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="home">
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html">Accueil</a>
+  <nav class="main-nav" aria-label="Navigation principale">
+    <a data-page="home" href="index.html">CV et lettre</a>
+    <a data-page="projects" href="projets.html">Projets</a>
+    <a data-page="qr" href="qr.html">QR code</a>
+  </nav>
+</div></header>
+<main>
+  <div class="hero" id="hero"></div>
+  <section><div class="wrap">
+    <h2>Compétences</h2>
+    <ul class="chips" id="skills"></ul>
+  </div></section>
+  <section id="documents" style="padding-top:0"><div class="wrap">
+    <h2>CV et lettre de motivation</h2>
+    <p class="lead">Consultez les documents ici ou téléchargez-les en PDF.</p>
+    <div class="docs" id="docs"></div>
+  </div></section>
+</main>
+<footer><div class="wrap"><span id="contact"></span><span>© <span id="year"></span></span></div></footer>
+<script src="assets/app.js"></script>
+</body>
+</html>
