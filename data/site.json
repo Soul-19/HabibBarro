@@ -1,0 +1,14 @@
+{
+  "name": "Habib",
+  "title": "Élève ingénieur en électronique des systèmes automobile et aéronautique",
+  "school": "ESIGELEC, Rouen",
+  "intro": "Je me spécialise en radiofréquences, antennes et systèmes embarqués. Je cherche un stage de fin d’études de 6 mois à partir de février 2027, ou une alternance de 12 mois.",
+  "email": "",
+  "linkedin": "",
+  "github": "",
+  "skills": ["RF et hyperfréquences", "Antennes", "CEM", "Instrumentation et mesure", "KiCad, Altium, OrCAD", "MATLAB et Simulink", "STM32 et ESP32", "VHDL"],
+  "documents": {
+    "cv": { "label": "Curriculum vitae", "path": "files/cv.pdf", "updated": "" },
+    "lettre": { "label": "Lettre de motivation", "path": "files/lettre.pdf", "updated": "" }
+  }
+}
