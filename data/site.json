@@ -6,9 +6,26 @@
   "email": "",
   "linkedin": "",
   "github": "",
-  "skills": ["RF et hyperfréquences", "Antennes", "CEM", "Instrumentation et mesure", "KiCad, Altium, OrCAD", "MATLAB et Simulink", "STM32 et ESP32", "VHDL"],
+  "skills": [
+    "RF et hyperfréquences",
+    "Antennes",
+    "CEM",
+    "Instrumentation et mesure",
+    "KiCad, Altium, OrCAD",
+    "MATLAB et Simulink",
+    "STM32 et ESP32",
+    "VHDL"
+  ],
   "documents": {
-    "cv": { "label": "Curriculum vitae", "path": "files/cv.pdf", "updated": "" },
-    "lettre": { "label": "Lettre de motivation", "path": "files/lettre.pdf", "updated": "" }
+    "cv": {
+      "label": "Curriculum vitae",
+      "path": "files/cv.pdf",
+      "updated": "2026-10-24"
+    },
+    "lettre": {
+      "label": "Lettre de motivation",
+      "path": "files/lettre.pdf",
+      "updated": ""
+    }
   }
 }
