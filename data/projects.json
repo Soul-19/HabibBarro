@@ -1,18 +1,24 @@
 [
   {
-    "id": "lna-rf",
-    "title": "Amplificateur faible bruit (LNA) RF",
-    "summary": "Projet personnel : conception d’un amplificateur faible bruit sur carte électronique.",
-    "tags": ["RF", "PCB"],
+    "id": "antenne-patch-gsm900",
+    "title": "Antenne patch GSM900",
+    "summary": "Simulation d’une antenne patch pour la bande GSM900 sous CST Studio.",
+    "tags": [
+      "Antennes",
+      "Simulation"
+    ],
     "date": "",
     "link": "",
     "files": []
   },
   {
-    "id": "antenne-patch-gsm900",
-    "title": "Antenne patch GSM900",
-    "summary": "Simulation d’une antenne patch pour la bande GSM900 sous CST Studio.",
-    "tags": ["Antennes", "Simulation"],
+    "id": "lna-rf",
+    "title": "Amplificateur faible bruit (LNA) RF",
+    "summary": "Projet personnel : conception d’un amplificateur faible bruit sur carte électronique.",
+    "tags": [
+      "RF",
+      "PCB"
+    ],
     "date": "",
     "link": "",
     "files": []
@@ -21,7 +27,10 @@
     "id": "stage-somisa-roip",
     "title": "Stage SOMISA : radio sur IP",
     "summary": "Stage de technicien sur la mise en réseau de talkies-walkies par RoIP, à Sanbrado (Burkina Faso).",
-    "tags": ["Radiocommunication", "Réseaux"],
+    "tags": [
+      "Radiocommunication",
+      "Réseaux"
+    ],
     "date": "",
     "link": "",
     "files": []
