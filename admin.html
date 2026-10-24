@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Administration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html">Voir le site</a>
+  <nav><a href="admin.html" aria-current="page">Administration</a></nav>
+</div></header>
+<main><section><div class="wrap">
+  <div id="login" hidden>
+    <h2>Connexion</h2>
+    <p class="lead">Ces informations restent dans votre navigateur. Personne d’autre ne peut modifier le site sans votre jeton.</p>
+    <form class="panel" id="loginForm" autocomplete="off">
+      <div class="grid2">
+        <div class="field"><label for="owner">Nom d’utilisateur GitHub</label><input id="owner" required></div>
+        <div class="field"><label for="repo">Nom du dépôt</label><input id="repo" required></div>
+        <div class="field"><label for="branch">Branche</label><input id="branch" value="main" required></div>
+        <div class="field"><label for="token">Jeton d’accès</label><input id="token" type="password" required></div>
+      </div>
+      <p class="hint">Créez le jeton dans GitHub : Settings, Developer settings, Fine-grained tokens. Limitez-le à ce dépôt, avec la permission « Contents : Read and write ».</p>
+      <p><button class="btn primary" type="submit">Se connecter</button></p>
+    </form>
+  </div>
+
+  <div id="app" hidden>
+    <div class="row" style="justify-content:space-between;margin-bottom:1rem">
+      <h2 style="margin:0">Administration</h2>
+      <button class="btn small" id="logout" type="button">Se déconnecter</button>
+    </div>
+    <div class="tabs" role="tablist">
+      <button role="tab" data-tab="docs" aria-selected="true">CV et lettre</button>
+      <button role="tab" data-tab="projects" aria-selected="false">Projets</button>
+      <button role="tab" data-tab="profile" aria-selected="false">Profil</button>
+    </div>
+    <div id="view"></div>
+  </div>
+</div></section></main>
+<div id="status" class="status" role="status" aria-live="polite" hidden></div>
+<script src="assets/admin.js"></script>
+</body>
+</html>

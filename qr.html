@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QR code du site</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="qr">
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html">Accueil</a>
+  <nav aria-label="Navigation principale">
+    <a data-page="home" href="index.html">CV et lettre</a>
+    <a data-page="projects" href="projets.html">Projets</a>
+    <a data-page="qr" href="qr.html">QR code</a>
+  </nav>
+</div></header>
+<main><section><div class="wrap">
+  <h2>QR code du site</h2>
+  <p class="lead">Scannez-le pour ouvrir ce site. Téléchargez-le pour l’ajouter à un CV papier, une carte de visite ou un poster.</p>
+  <div class="qrbox">
+    <canvas id="qr" width="300" height="300" role="img" aria-label="QR code vers le site"></canvas>
+    <div>
+      <div class="field"><label for="url">Adresse encodée</label>
+        <input id="url" type="url" inputmode="url" autocomplete="off">
+        <p class="hint">Par défaut, l’adresse de cette page d’accueil. Ne la changez que si le site déménage.</p></div>
+      <div class="row">
+        <button class="btn primary" id="png" type="button">Télécharger en PNG</button>
+        <button class="btn" id="svg" type="button">Télécharger en SVG</button>
+        <button class="btn" id="print" type="button">Imprimer</button>
+      </div>
+    </div>
+  </div>
+</div></section></main>
+<footer><div class="wrap"><span></span><span>© <span id="year"></span></span></div></footer>
+<script src="assets/qrcode.js"></script>
+<script>
+const url = document.getElementById("url"), cv = document.getElementById("qr");
+document.getElementById("year").textContent = new Date().getFullYear();
+document.querySelectorAll(".top nav a").forEach(a => { if (a.dataset.page === "qr") a.setAttribute("aria-current", "page"); });
+url.value = location.href.replace(/[^/]*$/, "").replace(/[?#].*$/, "");
+function model() { const q = qrcode(0, "M"); q.addData(url.value.trim() || " "); q.make(); return q; }
+function draw() {
+  const q = model(), n = q.getModuleCount(), quiet = 2, px = Math.floor(300 / (n + quiet * 2));
+  const s = px * (n + quiet * 2); cv.width = cv.height = s;
+  const c = cv.getContext("2d"); c.fillStyle = "#fff"; c.fillRect(0, 0, s, s); c.fillStyle = "#000";
+  for (let r = 0; r < n; r++) for (let k = 0; k < n; k++) if (q.isDark(r, k)) c.fillRect((k + quiet) * px, (r + quiet) * px, px, px);
+}
+function save(href, name) { const a = document.createElement("a"); a.href = href; a.download = name; a.click(); }
+document.getElementById("png").onclick = () => {
+  const q = model(), n = q.getModuleCount(), quiet = 4, px = 20, s = px * (n + quiet * 2);
+  const c = document.createElement("canvas"); c.width = c.height = s; const g = c.getContext("2d");
+  g.fillStyle = "#fff"; g.fillRect(0, 0, s, s); g.fillStyle = "#000";
+  for (let r = 0; r < n; r++) for (let k = 0; k < n; k++) if (q.isDark(r, k)) g.fillRect((k + quiet) * px, (r + quiet) * px, px, px);
+  save(c.toDataURL("image/png"), "qr-code-site.png");
+};
+document.getElementById("svg").onclick = () => {
+  const q = model(), n = q.getModuleCount(), quiet = 4; let d = "";
+  for (let r = 0; r < n; r++) for (let k = 0; k < n; k++) if (q.isDark(r, k)) d += `M${k + quiet} ${r + quiet}h1v1h-1z`;
+  const t = n + quiet * 2;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${t} ${t}" shape-rendering="crispEdges"><rect width="${t}" height="${t}" fill="#fff"/><path d="${d}"/></svg>`;
+  save(URL.createObjectURL(new Blob([svg], { type: "image/svg+xml" })), "qr-code-site.svg");
+};
+document.getElementById("print").onclick = () => window.print();
+url.addEventListener("input", draw); draw();
+</script>
+<style>@media print{.tools,.row,h2,.lead,.field{display:none}.qrbox{display:block}}</style>
+</body>
+</html>
