@@ -20,7 +20,8 @@
     "cv": {
       "label": "Curriculum vitae",
       "path": "files/cv.pdf",
-      "updated": "2026-10-24"
+      "updated": "2026-10-31",
+      "v": 1793478888045
     },
     "lettre": {
       "label": "Lettre de motivation",
